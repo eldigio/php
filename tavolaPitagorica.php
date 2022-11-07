@@ -14,9 +14,9 @@
     <table class="table table-sm table-bordered border-danger">
         <?php
 
-            function tabellina($num) {
+            function tabellina($_num) {
                 for ($i = 1; $i <= 10; $i++) {
-                    echo nl2br("<td class='text-center'>" . $num * $i . "</td>");
+                    echo nl2br("<td class='text-center'>" . $_num * $i . "</td>");
                 }
             }
 

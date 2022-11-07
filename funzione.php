@@ -13,14 +13,35 @@
 
     <?php
 
-        function somma($a, $b) {
-            return $a + $b;
+        function potenza($base, $esponente) {
+            $totale = 1;
+            for ($i = 0; $i < $esponente; $i++) {
+                $totale *= $base;
+            }
+            return $totale;
         }
 
-        $a = 15;
-        $b = 18;
+        echo nl2br("Funzione Potenza\n" . date("r") . "\n");    //date("l d/F/Y G:i:s")
+        $a = 2;
+        $b = 8; 
+        echo nl2br("$a^$b = " .  potenza($a, $b) . "\n");
 
-        echo "$a+$b = " . somma($a, $b);
+        echo nl2br("Potenze di un byte\n");
+        $base = 2;
+        for ($i = 8; $i >= 0; $i--) {
+            echo potenza($base, $i) . " ";
+        }
+
+
+        function molt_array($array, $molt = 2) {
+            $new_array = [];
+            foreach($array as $e) {
+                $new_array[] = $e * $molt;
+            }
+            return $new_array;
+        }
+
+        /* print_r(molt_array([1,2,3,4,5], 5)); */
 
     ?>
 
