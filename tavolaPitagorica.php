@@ -13,13 +13,17 @@
 
     <table class="table table-sm table-bordered border-danger">
         <?php
-            for ($i = 1; $i <= 10; $i++) {
-                echo "<tr>";
-                for ($j = 1; $j <= 10; $j++) {
-                    echo "<td class='text-center'>" . $i * $j . "</td>";    
+
+            function tabellina($num) {
+                for ($i = 1; $i <= 10; $i++) {
+                    echo nl2br("<td class='text-center'>" . $num * $i . "</td>");
                 }
-                echo "</tr>";
             }
+
+            for ($i = 1; $i <= 10; $i++) {
+                echo "<tr>" . tabellina($i) . "</tr>";
+            }
+
         ?>
     </table>
 
