@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title><?php echo "Funzione"; ?></title>
+    <title><?php echo "Funzione" . date(" d/m/Y G:i:s");    //date("r")?></title>
 </head>
 
 <body>
 
     <?php
 
-        function potenza($base, $esponente) {
+        function potenza ($base, $esponente) {
             $totale = 1;
             for ($i = 0; $i < $esponente; $i++) {
                 $totale *= $base;
@@ -21,7 +21,7 @@
             return $totale;
         }
 
-        echo nl2br("Funzione Potenza\n" . date("r") . "\n");    //date("l d/F/Y G:i:s")
+        echo nl2br("Funzione Potenza\n");
         $a = 2;
         $b = 8; 
         echo nl2br("$a^$b = " .  potenza($a, $b) . "\n");
