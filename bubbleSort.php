@@ -13,6 +13,7 @@
 
     <?php
 
+        //tabellina dei numeri in un array
         //bubble sort
         $array = [1,5,9,8,7,4,6,3,2,0];
         shuffle($array);
