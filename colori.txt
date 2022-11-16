@@ -1,0 +1,8 @@
+rosso
+verde
+blue
+rosso
+rosso
+rosso
+verde
+giallo

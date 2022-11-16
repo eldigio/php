@@ -1,5 +1,7 @@
 <?php
 
+include_once "utils.php";
+
 $trisArray = [
   ["0,0","0,1","0,2"],
   ["1,0","1,1","1,2"],
@@ -7,26 +9,23 @@ $trisArray = [
 ];
 
 $listaStudenti = [
-  "Mario" => ["Anno" => "1998", "Sesso" => "M", "Email" => "test@test.it"],
-  "Maria" => ["Anno" => "1999", "Sesso" => "F", "Email" => "test@test.it"],
-  "Pippo" => ["Anno" => "1985", "Sesso" => "M", "Email" => "test@test.it"],
-  "Pluto" => ["Anno" => "1987", "Sesso" => "F", "Email" => "test@test.it"],
+  "Mario" => ["dataNascita" => "1998-02-10", "Sesso" => "M", "Email" => "mario@test.it"],
+  "Maria" => ["dataNascita" => "1999-05-12", "Sesso" => "F", "Email" => "maria@test.it"],
+  "Pippo" => ["dataNascita" => "1985-25-05", "Sesso" => "M", "Email" => "pippo@test.it"],
+  "Pluto" => ["dataNascita" => "1987-22-01", "Sesso" => "F", "Email" => "pluto@test.it"],
 ];
 
-$htmlList = "<table class='table'><tr>";
-
-foreach ($listaStudenti as $key => $values) {
-  $htmlList .= "<td>Nome: $key</td>";
-  foreach ($values as $key => $value) {
-    $htmlList .= "<td>$key: ";
-    if ($value == "M") $value = "Maschio";
-    if ($value == "F") $value = "Femmina";
-    $htmlList .= "$value</td>";
+$htmlList = "<tr>";
+foreach ($listaStudenti as $nomeStudenti => $datiStudenti) {
+  $htmlList .= "<td>$nomeStudenti</td>";
+  foreach ($datiStudenti as $key => $value) {
+    if ($key == "dataNascita") $value = dateFormat($value, "d/m/Y");
+    if ($key == "Sesso") $value = $gender[$value];
+    $htmlList .= "<td>$value</td>";
   }
   $htmlList .= "</tr>";
 }
 
-$htmlList .= "</table>";
 
 ?>
 
@@ -44,8 +43,20 @@ $htmlList .= "</table>";
 
   <body>
 
-    <div class="container">
-      <?= $htmlList ?>
+    <div class="container my-3">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Anno di nascita</th>
+            <th scope="col">Sesso</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?= $htmlList ?>
+        </tbody>
+      </table>
     </div>
 
   </body>
