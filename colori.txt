@@ -1,8 +1,9 @@
+blu
+blu
+rosso
+rosso
+rosso
 rosso
 verde
-blue
-rosso
-rosso
-rosso
 verde
 giallo
