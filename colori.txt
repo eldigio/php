@@ -1,10 +1,15 @@
-rosso
 bianco
+rosso
 nero
 bianco
+nero
 rosso
+bianco
 giallo
+verde
+bianco
+rosso
 nero
 bianco
 nero
-verde
+giallo
