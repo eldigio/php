@@ -1,22 +1,15 @@
 <?php
-  include_once "utils.php";
+/*   include_once "utils.php"; */
 
   $htmlColori = "";
-  $file = fopen('colori.txt', 'r');
-  $isFirst = true;
-  while (($line = fgets($file)) !== FALSE) {
-    if(!$isFirst){
-      print_r($array_colori = explode(";",$line));
 
-      /* $htmlColori .= "<tr>
-                        <td>" . "nome colore" . "</td>
-                        <td>" . "occorrenze" . "</td>
-                      </tr>"; */
-    }
-    
-    $isFirst = false;
+  $word_count = array_count_values(file("colori.txt"));
+  arsort($word_count);
+
+  foreach ($word_count as $key => $value) {
+    $htmlColori .= "<tr><td>$key</td><td>$value</td></tr>";
   }
-  fclose($file);
+
 
 ?>
 
@@ -36,7 +29,6 @@
 
     <div class="container">
     <h1>Occorrenze Colori</h1>
-
       <table class="table table-striped">
         <thead>
           <tr>
