@@ -1,9 +1,10 @@
-blu
-blu
 rosso
+bianco
+nero
+bianco
 rosso
-rosso
-rosso
-verde
-verde
 giallo
+nero
+bianco
+nero
+verde

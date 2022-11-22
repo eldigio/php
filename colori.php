@@ -3,7 +3,8 @@
 
   $htmlColori = "";
 
-  $word_count = array_count_values(file("colori.txt"));
+  $file = file("colori.txt", FILE_IGNORE_NEW_LINES);
+  $word_count = array_count_values($file);
   arsort($word_count);
 
   foreach ($word_count as $key => $value) {
@@ -28,7 +29,7 @@
   <body>
 
     <div class="container">
-    <h1>Occorrenze Colori</h1>
+    <h1 class="my-4">Occorrenze Colori</h1>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -36,7 +37,7 @@
             <th scope="col">Occorrenze</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-capitalize">
           <?= $htmlColori ?>
         </tbody>
       </table>
