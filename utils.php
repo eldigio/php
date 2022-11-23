@@ -27,6 +27,10 @@ $comuni = [
   "UMB" => "Umbria",
   "VDA" => "Valle d'Aosta",
   "VEN" => "Veneto",
-]
+];
+
+function format_num (int $num) {
+  return number_format($num, 2, ",", "'");
+}
 
 ?>
