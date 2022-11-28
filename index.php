@@ -1,18 +1,11 @@
 <?php
+require_once "utils.php";
 
-include_once "utils.php";
+$html = ""; $dataHtml = date("Y-m-d");
+$a_selected = ""; $b_selected = ""; $c_selected = "";
+$italia_selected = ""; $francia_selected = ""; $usa_selected = ""; $giappone_selected = "";
 
-$html = "";
-$dataHtml = date("Y-m-d");
-$a_selected = "";
-$b_selected = "";
-$c_selected = "";
-$italia_selected = "";
-$francia_selected = "";
-$usa_selected = "";
-$giappone_selected = "";
-
-if (isset($_POST["dataNascita"]) && isset($_POST["selectPatente"]) && isset($_POST["nazione"])) {
+if (isset($_POST["dataNascita"], $_POST["selectPatente"], $_POST["nazione"])) {
   $dataNascita = $_POST["dataNascita"];
   $dataHtml = $dataNascita;
   $tipoPatente = $_POST["selectPatente"];
@@ -22,30 +15,16 @@ if (isset($_POST["dataNascita"]) && isset($_POST["selectPatente"]) && isset($_PO
   else $html = "No";
   
   switch ($tipoPatente) {
-    case "A":
-      $a_selected = "selected";
-      break;
-    case "B":
-      $b_selected = "selected";
-      break;
-    case "C":
-      $c_selected = "selected";
-      break;
+    case "A": $a_selected = "selected"; break;
+    case "B": $b_selected = "selected"; break;
+    case "C": $c_selected = "selected"; break;
   }
 
   switch ($nazione) {
-    case "Italia":
-      $italia_selected = "selected";
-      break;
-    case "Francia":
-      $francia_selected = "selected";
-      break;
-    case "USA":
-      $usa_selected = "selected";
-      break;
-    case "Giappone":
-      $giappone_selected = "selected";
-      break;
+    case "Italia": $italia_selected = "selected"; break;
+    case "Francia": $francia_selected = "selected"; break;
+    case "USA": $usa_selected = "selected"; break;
+    case "Giappone": $giappone_selected = "selected"; break;
   }
 }
 
@@ -74,7 +53,7 @@ if (isset($_POST["dataNascita"]) && isset($_POST["selectPatente"]) && isset($_PO
 
   <body>
     <div class="container">
-      <h1 class="mb-5">Controllo patente</h1>
+      <h1 class="my-4">Controllo patente</h1>
       <form action="" method="post">
         <div class="mb-3 input-group">
           <label class="input-group-text w-25">Data di nascita</label>
