@@ -89,7 +89,7 @@ if (isset($_POST["dataNascita"]) && isset($_POST["selectPatente"]) && isset($_PO
           </select>
         </div>
         <div class="mb-3 input-group">
-          <label class="input-group-text w-25">Nazionalità</label>
+          <label class="input-group-text w-25">Nazione</label>
           <select name="nazione" class="form-select">
             <option value="Italia"<?= $italia_selected ?>>Italia</option>
             <option value="Francia"<?= $francia_selected ?>>Francia</option>
