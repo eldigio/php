@@ -18,8 +18,8 @@ if (isset($_POST["dataNascita"]) && isset($_POST["selectPatente"]) && isset($_PO
   $tipoPatente = $_POST["selectPatente"];
   $nazione = $_POST["nazione"];
 
-  if ($patente[$nazione][$tipoPatente] <= person_age($dataNascita)) {$html = "$tipoPatente: si";}
-  else $html = "$tipoPatente: no";
+  if ($patente[$nazione][$tipoPatente] <= person_age($dataNascita)) {$html = "Si";}
+  else $html = "No";
   
   switch ($tipoPatente) {
     case "A":
@@ -74,32 +74,32 @@ if (isset($_POST["dataNascita"]) && isset($_POST["selectPatente"]) && isset($_PO
 
   <body>
     <div class="container">
-      <h1>Titolo della pagina</h1>
+      <h1 class="mb-5">Controllo patente</h1>
       <form action="" method="post">
-        <div class="mb-3">
-          <label class="form-label">Data di nascita</label>
+        <div class="mb-3 input-group">
+          <label class="input-group-text w-25">Data di nascita</label>
           <input type="date" name="dataNascita" value="<?= $dataHtml ?>" class="form-control" />
         </div>
-        <div class="mb-3">
-          <label class="form-label">Tipo di patente</label>
+        <div class="mb-3 input-group">
+          <label class="input-group-text w-25">Tipo di patente</label>
           <select name="selectPatente" class="form-select">
             <option value="A"<?= $a_selected ?>>A</option>
             <option value="B"<?= $b_selected ?>>B</option>
             <option value="C"<?= $c_selected ?>>C</option>
           </select>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Nazionalità</label>
-          <select class="form-select mb-3" name="nazione">
+        <div class="mb-3 input-group">
+          <label class="input-group-text w-25">Nazionalità</label>
+          <select name="nazione" class="form-select">
             <option value="Italia"<?= $italia_selected ?>>Italia</option>
             <option value="Francia"<?= $francia_selected ?>>Francia</option>
             <option value="USA"<?= $usa_selected ?>>USA</option>
             <option value="Giappone"<?= $giappone_selected ?>>Giappone</option>
           </select>
         </div>
-        <input type="submit" class="btn btn-primary mb-3" name="btn" value="Calcola" />
+        <input type="submit" class="btn btn-primary me-3 w-25" name="btn" value="Calcola" />
+        <span class="align-bottom"><?= $html ?></span>
       </form>
-      <pre><?= $html ?></pre>
     </div>
   </body>
 </html>
