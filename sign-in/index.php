@@ -12,8 +12,44 @@ if($result = $connection->query($sql)) {
         <td>" . $row["data_nascita"] . "</td>
         <td>" . $row["codice_fiscale"] . "</td>
         <td>" . $row["email"] . "</td>
-        <td><a href='updateStudente.php' class='btn btn-warning'>$icon_edit</a></td>
-        <td><button class='btn btn-danger'>$icon_delete</button</td>
+        <td>
+        <button type='button' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#editModal'>$icon_edit</button>
+        <div class='modal fade' id='editModal' tabindex='-1' aria-labelledby='editModalLabel' aria-hidden='true'>
+          <div class='modal-dialog'>
+            <div class='modal-content'>
+              <div class='modal-header'>
+                <h1 class='modal-title fs-5' id='editModalLabel'>Modal title</h1>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+              </div>
+              <div class='modal-body'>
+                <table class='table table-sm table-striped mx-auto text-center'>
+                  <thead>
+                    <tr>
+                      <th>Colonna</th>
+                      <th>Campo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>ID</td><td><input type='text' class='form-control' value=" .  $row["id"]. " disabled></td></tr>
+                    <tr><td>Nome</td><td><input type='text' class='form-control' value=" .  $row["nome"]. "></td></tr>
+                    <tr><td>Cognome</td><td><input type='text' class='form-control' value=" .  $row["cognome"]. "></td></tr>
+                    <tr><td>Email</td><td><input type='text' class='form-control' value=" .  $row["email"]. "></td></tr>
+                    <tr><td>Password</td><td><input type='text' class='form-control' value=" .  $row["password"]. "></td></tr>
+                    <tr><td>Telefono</td><td><input type='text' class='form-control' value=" .  $row["telefono"]. "></td></tr>
+                    <tr><td>Codice Fiscale</td><td><input type='text' class='form-control' value=" .  $row["codice_fiscale"]. "></td></tr>
+                    <tr><td>Data Nascita</td><td><input type='text' class='form-control' value=" .  $row["data_nascita"]. "></td></tr>
+                    <tr><td>Data Registrazione</td><td><input type='text' class='form-control' value=" . $row["data_registrazione"] . " disabled></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                <button type='button' class='btn btn-primary'>Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class='btn btn-danger'>$icon_delete</button</td>
       </tr>";
     }
   } else echo "error: " . $connection->error;
